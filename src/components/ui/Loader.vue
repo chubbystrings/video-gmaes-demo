@@ -24,7 +24,7 @@ export default defineComponent({
   z-index: 100000;
   display: grid;
   place-items: center;
-  font-size: 30px;
+  font-size: 20px;
   
 }
 
