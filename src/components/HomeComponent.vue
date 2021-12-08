@@ -44,7 +44,9 @@ export default defineComponent({
     const numberPerPage = ref(10);
     const { state, dispatch } = useContext();
 
-    dispatch(loadGames());
+    if (state.games.length === 0) {
+      dispatch(loadGames());
+    }
 
     const games = computed(() => state.games);
     const filteredGames = computed(() => state.searchedGames);
@@ -158,7 +160,6 @@ export default defineComponent({
   box-sizing: border-box;
   padding: 10px;
   row-gap: 20px;
-  
 }
 
 .page-info-text {
@@ -196,7 +197,7 @@ export default defineComponent({
 
 .btn-wrapper button:disabled {
   cursor: not-allowed;
-  background:var(--text);
+  background: var(--text);
 }
 
 @media only screen and (min-width: 1024px) {
