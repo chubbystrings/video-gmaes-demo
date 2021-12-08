@@ -225,8 +225,8 @@ export default defineComponent({
   transition: 0.6s;
 }
 .filter-form button:hover {
-  background-color: #fff;
-  color: #182c47;
+  /* background-color: #fff;
+  color: #182c47; */
   font-family: "Montserrat", sans-serif;
 }
 .dropdown {
@@ -245,6 +245,9 @@ export default defineComponent({
   justify-content: center;
   transition: all 0.5s ease;
   cursor: pointer;
+}
+.arrow:hover {
+  filter: brightness(70%);
 }
 .arrow img {
   color: white;

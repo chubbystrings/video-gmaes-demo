@@ -29,6 +29,10 @@ a:hover {
     color: var(--text)
 }
 
+button:hover {
+    filter: brightness(70%)
+}
+
 
 h1, h2, h3, h4, h5 {
     font-family: 'Montserrat', sans-serif;
