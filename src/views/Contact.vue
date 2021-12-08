@@ -1,16 +1,18 @@
 <template>
   <div>
-    <Home />
+    <Contact />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Home from '@/components/HomeComponent.vue'; // @ is an alias to /src
+import Contact from '@/components/ContactComponent.vue';
 
 export default defineComponent({
   components: {
-    Home,
+    Contact,
   },
-});
+ 
+})
 </script>
+

@@ -1,0 +1,9 @@
+export const LOAD_DATA = 'LOAD_DATA'
+export const ON_LOADER = 'ON_LOADER'
+export const OFF_LOADER = 'OFF_LOADER'
+export const FILTER = 'FILTER'
+export const CLEAR_FILTER = 'CLEAR_FILTER'
+export const EMPTY_SEARCH = 'EMPTY_SEARCH'
+export const OPEN_SEARCH_PROGRESS = 'OPEN_SEARCH_PROGRESS'
+export const CLOSE_SEARCH_PROGRESS = 'CLOSE_SEARCH_PROGRESS';
+export const SCREEN_SIZE = 'SCREEN_SIZE'
