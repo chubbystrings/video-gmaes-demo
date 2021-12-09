@@ -1,5 +1,6 @@
 import { reactive, readonly, toRefs } from "vue";
 import instance from "../services/axios";
+import { useSortBy } from '../composables/useSortBy'
 export interface GAMES {
   first_release_date: Date;
   id: number;
@@ -62,38 +63,10 @@ export const useContext = () => {
     }
   };
 
-  const handleSort = (sortBy: string, order: string = "date") => {
-    if (sortBy === "date") {
-      initialState.searchedGames =
-        order === "asc"
-          ? initialState.searchedGames.sort(
-              (a, b) =>
-                new Date(a.first_release_date).valueOf() -
-                new Date(b.first_release_date).valueOf()
-            )
-          : initialState.searchedGames.sort(
-              (a, b) =>
-                new Date(b.first_release_date).valueOf() -
-                new Date(a.first_release_date).valueOf()
-            );
-    }
-    if (sortBy === "name") {
-      initialState.searchedGames =
-        order === "asc"
-          ? initialState.searchedGames.sort((a, b) =>
-              a.name < b.name ? -1 : 1
-            )
-          : initialState.searchedGames.sort((a, b) =>
-              a.name > b.name ? -1 : 1
-            );
-    }
-
-    if (sortBy === "score") {
-      initialState.searchedGames =
-        order === "asc"
-          ? initialState.searchedGames.sort((a, b) => a.rating - b.rating)
-          : initialState.searchedGames.sort((a, b) => b.rating - a.rating);
-    }
+  const handleSort = (sortBy: string, order: string = "asc") => {
+    const sortTerm = sortBy === 'date' ? 'first_release_date' : sortBy === 'score' ? 'rating' : sortBy
+    const { sortedArray } = useSortBy(sortTerm, order, initialState.searchedGames);
+    initialState.searchedGames = sortedArray as GAMES[]
   };
 
   const handleSearch = ({
