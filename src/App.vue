@@ -42,8 +42,6 @@ export default defineComponent({
     onMounted(() => {
       window.addEventListener('resize', (e) => {
         handleResize(e)
-        // console.log(isMobile.value)
-        // console.log(state.screen.isMobile)
       })
     })
 
